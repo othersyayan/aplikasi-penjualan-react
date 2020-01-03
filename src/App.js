@@ -14,23 +14,34 @@ import PrivateRoute from './components/PrivateRoute'
 // Import context Firebase Provider
 import FirebaseProvider from './components/FirebaseProvider';
 
+// Import Komponen Material UI
+import CssBaseline from '@material-ui/core/CssBaseline'
+
+// Import Theme Provider
+import ThemeProvider from '@material-ui/styles/ThemeProvider';
+import theme from './config/theme';
+
 function App() {
   return (
-
-    <FirebaseProvider>
-      <Router>
-        <Switch>
-          <PrivateRoute path="/" exact component={Private}></PrivateRoute>
-          <PrivateRoute path="/pengaturan" component={Private}></PrivateRoute>
-          <PrivateRoute path="/produk" component={Private}></PrivateRoute>
-          <PrivateRoute path="/transaksi" component={Private}></PrivateRoute>
-          <Route path="/registrasi" component={Registrasi}></Route>
-          <Route path="/login" component={Login}></Route>
-          <Route path="/lupa-password" component={LupaPassword}></Route>
-          <Route component={NotFound}></Route>
-        </Switch>
-      </Router>
-    </FirebaseProvider>
+    <>
+      <CssBaseline />
+      <ThemeProvider theme={theme}>
+        <FirebaseProvider>
+          <Router>
+            <Switch>
+              <PrivateRoute path="/" exact component={Private}></PrivateRoute>
+              <PrivateRoute path="/pengaturan" component={Private}></PrivateRoute>
+              <PrivateRoute path="/produk" component={Private}></PrivateRoute>
+              <PrivateRoute path="/transaksi" component={Private}></PrivateRoute>
+              <Route path="/registrasi" component={Registrasi}></Route>
+              <Route path="/login" component={Login}></Route>
+              <Route path="/lupa-password" component={LupaPassword}></Route>
+              <Route component={NotFound}></Route>
+            </Switch>
+          </Router>
+        </FirebaseProvider>
+      </ThemeProvider>
+    </>
   );
 }
 
