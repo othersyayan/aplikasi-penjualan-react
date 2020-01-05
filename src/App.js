@@ -21,25 +21,30 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import ThemeProvider from '@material-ui/styles/ThemeProvider';
 import theme from './config/theme';
 
+// Import Notistack Plugin
+import { SnackbarProvider } from "notistack";
+
 function App() {
   return (
     <>
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <FirebaseProvider>
-          <Router>
-            <Switch>
-              <PrivateRoute path="/" exact component={Private}></PrivateRoute>
-              <PrivateRoute path="/pengaturan" component={Private}></PrivateRoute>
-              <PrivateRoute path="/produk" component={Private}></PrivateRoute>
-              <PrivateRoute path="/transaksi" component={Private}></PrivateRoute>
-              <Route path="/registrasi" component={Registrasi}></Route>
-              <Route path="/login" component={Login}></Route>
-              <Route path="/lupa-password" component={LupaPassword}></Route>
-              <Route component={NotFound}></Route>
-            </Switch>
-          </Router>
-        </FirebaseProvider>
+        <SnackbarProvider maxSnack={3} autoHideDuration={3000}>
+          <FirebaseProvider>
+            <Router>
+              <Switch>
+                <PrivateRoute path="/" exact component={Private}></PrivateRoute>
+                <PrivateRoute path="/pengaturan" component={Private}></PrivateRoute>
+                <PrivateRoute path="/produk" component={Private}></PrivateRoute>
+                <PrivateRoute path="/transaksi" component={Private}></PrivateRoute>
+                <Route path="/registrasi" component={Registrasi}></Route>
+                <Route path="/login" component={Login}></Route>
+                <Route path="/lupa-password" component={LupaPassword}></Route>
+                <Route component={NotFound}></Route>
+              </Switch>
+            </Router>
+          </FirebaseProvider>
+        </SnackbarProvider>
       </ThemeProvider>
     </>
   );

@@ -1,8 +1,20 @@
 import React from 'react';
 
-function Home() {
+// Import Komponen Material UI
+import Button from "@material-ui/core/Button";
 
-    return <h1>Halaman Home (Buat Transaksi)</h1>
+// Import Firebase SDK
+import { useFirebase } from "../../../components/FirebaseProvider";
+
+function Home() {
+    const { auth } = useFirebase();
+
+    return <>
+        <h1>Halaman Home (Buat Transaksi)</h1>
+        <Button onClick={ (e) => {
+            auth.signOut()
+        }}>Sign Out</Button>
+    </>
 
 }
 
