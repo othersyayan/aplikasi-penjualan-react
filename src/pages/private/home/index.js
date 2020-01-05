@@ -4,16 +4,16 @@ import React from 'react';
 import Button from "@material-ui/core/Button";
 
 // Import Firebase SDK
-import { useFirebase } from "../../../components/FirebaseProvider";
+// import { useFirebase } from "../../../components/FirebaseProvider";
 
 function Home() {
-    const { auth } = useFirebase();
+    // const { auth } = useFirebase();
 
     return <>
         <h1>Halaman Home (Buat Transaksi)</h1>
-        <Button onClick={ (e) => {
+        {/* <Button onClick={ (e) => {
             auth.signOut()
-        }}>Sign Out</Button>
+        }}>Sign Out</Button> */}
     </>
 
 }
