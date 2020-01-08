@@ -7,6 +7,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Paper from '@material-ui/core/Paper';
 
+
 // Import Komponen Halaman
 import Pengguna from './pengguna'
 import Toko from './toko'
@@ -17,7 +18,9 @@ import useStyles from './styles'
 function Pengaturan(props) {
     
     const {location, history} = props;
+    
     const classes = useStyles();
+
     const handleChangeTab = (event, value) => {
         history.push(value);
     }
