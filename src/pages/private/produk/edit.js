@@ -24,7 +24,7 @@ import {Prompt} from 'react-router-dom';
 function EditProduk({match}) {
     const classes = useStyles();
 
-    const {firestore, user, storage} = useFirebase();
+    const {firestore, storage, user} = useFirebase();
 
     const {enqueueSnackbar} = useSnackbar();
 
@@ -178,9 +178,7 @@ function EditProduk({match}) {
                 }
                 setIsSubmitting(false);
             }
-
             reader.readAsDataURL(file);
-
         }
     }
 
