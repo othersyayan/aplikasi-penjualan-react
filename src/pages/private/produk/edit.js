@@ -138,14 +138,14 @@ function EditProduk({match}) {
             
             const reader = new FileReader();
 
-            reader.onabort = ()=>{
+            reader.onabort = () =>{
                 setError(error=>({
                     ...error,
                     foto: 'Proses pembacaan file dibatalkan'
                 }))
             }
 
-            reader.onerror = ()=>{
+            reader.onerror = () =>{
                 setError(error=>({
                     ...error,
                     foto: 'File tidak bisa dibaca'
@@ -164,7 +164,7 @@ function EditProduk({match}) {
                     const fotoSnapshot = await fotoRef.putString(reader.result, 'data_url');
                     const fotoUrl = await fotoSnapshot.ref.getDownloadURL();
 
-                    setForm(currentForm=>({
+                    setForm(currentForm=>({ 
                         ...currentForm,
                         foto:fotoUrl
                     }));
@@ -178,6 +178,7 @@ function EditProduk({match}) {
                 }
                 setIsSubmitting(false);
             }
+            
             reader.readAsDataURL(file);
         }
     }
